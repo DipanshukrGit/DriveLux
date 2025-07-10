@@ -1,40 +1,35 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
+import Header from "@/components/header";
 import { ClerkProvider } from "@clerk/nextjs";
-import { icons } from "lucide-react";
+import { Toaster } from "sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
-
-
 export const metadata = {
-  title: "DriveLux | Book. Buy. Drive.",
-  description: "Discover and purchase your dream car with DriveLux — the modern platform for exploring premium, brand-new vehicles.",
-  icons: {
-    icon: "/logo.png", 
-  },
+  title: "Vehiqle",
+  description: "Find your Dream Car",
 };
-
-
 
 export default function RootLayout({ children }) {
   return (
-     <ClerkProvider>
-   <html lang="en">
-        
+    <ClerkProvider>
+      <html lang="en">
+        <head>
+          <link rel="icon" href="/logo-white.png" sizes="any" />
+        </head>
         <body className={`${inter.className}`}>
-         <Header/>
+          <Header />
           <main className="min-h-screen">{children}</main>
-        
+          <Toaster richColors />
 
-          <footer className="bg-blue-100 py-12">
+          <footer className="bg-blue-50 py-12">
             <div className="container mx-auto px-4 text-center text-gray-600">
-              <p>  Designed with purpose. Developed with 💖.</p>
+              <p>Made with 💗 by RoadsideCoder</p>
             </div>
           </footer>
         </body>
       </html>
-      </ClerkProvider>
+    </ClerkProvider>
   );
 }

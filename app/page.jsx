@@ -1,24 +1,32 @@
-
-import CarCard from "@/components/CarCard";
-import HomeSearch from "@/components/home-search";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { ChevronRight, Car, Calendar, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { bodyTypes, carMakes, faqItems, featuredCars } from "@/lib/data";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { SignedOut } from "@clerk/nextjs";
-import { Calendar, Car, ChevronRight, Shield } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
+import { getFeaturedCars } from "@/actions/home";
+import { CarCard } from "@/components/car-card";
 
-export default function Home() {
+import Link from "next/link";
+import Image from "next/image";
+import { bodyTypes, carMakes, faqItems } from "@/lib/data";
+import { HomeSearch } from "@/components/home-search";
+
+
+export default async function Home() {
+  const featuredCars = await getFeaturedCars();
+
   return (
     <div className="flex flex-col pt-20">
-
       {/* Hero Section with Gradient Title */}
       <section className="relative py-16 md:py-28 dotted-background">
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-8">
             <h1 className="text-5xl md:text-8xl mb-4 gradient-title">
-              Find your Dream Car with DriveLux_Ai
+              Find your Dream Car with Vehiql AI
             </h1>
             <p className="text-xl text-gray-500 mb-8 max-w-2xl mx-auto">
               Advanced AI Car Search and test drive from thousands of vehicles.
@@ -26,11 +34,11 @@ export default function Home() {
           </div>
 
           {/* Search Component (Client) */}
-          <HomeSearch />
+          <HomeSearch/>
         </div>
       </section>
 
-       {/* Featured Cars */}
+      {/* Featured Cars */}
       <section className="py-12">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center mb-8">
@@ -49,9 +57,7 @@ export default function Home() {
         </div>
       </section>
 
-
-
-        {/* Browse by Make */}
+      {/* Browse by Make */}
       <section className="py-12 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center mb-8">
@@ -87,7 +93,7 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-16 bg-blue-100">
+      <section className="py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl font-bold text-center mb-12">
             Why Choose Our Platform
@@ -207,5 +213,3 @@ export default function Home() {
     </div>
   );
 }
-
-
