@@ -12,7 +12,7 @@ export const metadata = {
   title: "DriveLux | Book. Buy. Drive.",
   description: "Discover and purchase your dream car with DriveLux — the modern platform for exploring premium, brand-new vehicles.",
   icons: {
-    icon: "/browser_logo.png", 
+    icon: "/logo.png", 
   },
 };
 
