@@ -2,7 +2,7 @@ import { CarsList } from "./_components/car-list";
 
 
 export const metadata = {
-  title: "Cars | Vehiql Admin",
+  title: "Cars | DriveLux Admin",
   description: "Manage cars in your marketplace",
 };
 
