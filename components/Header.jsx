@@ -6,7 +6,7 @@ import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import { checkUser } from "@/lib/checkUser";
 import Image from "next/image";
 
-const header = async ({ isAdminPage = false }) => {
+const Header = async ({ isAdminPage = false }) => {
   const user = await checkUser();
   const isAdmin = user?.role === "ADMIN";
 
@@ -90,4 +90,4 @@ const header = async ({ isAdminPage = false }) => {
   );
 };
 
-export default header;
+export default Header;
